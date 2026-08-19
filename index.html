@@ -61,7 +61,11 @@
 
   /* ── Sections ── */
   section{padding:5.5rem 0 0}
-  .kicker{color:var(--ink-faint); font-size:.8rem; letter-spacing:.3em; margin-bottom:1.1rem}
+  .kicker{
+    color:var(--ink-dim); font-size:.98rem; letter-spacing:.42em;
+    margin-bottom:1.8rem; display:flex; align-items:center; gap:1.1rem;
+  }
+  .kicker::before{content:""; width:2.4rem; height:1px; background:#3a3a46; flex:none}
   h2{font-size:clamp(1.25rem,4.4vw,1.6rem); font-weight:500; letter-spacing:.06em; line-height:1.9; margin-bottom:1.6rem; text-wrap:balance}
   p.body{color:var(--ink); font-size:.98rem}
   p.body + p.body{margin-top:1.2rem}
