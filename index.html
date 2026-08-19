@@ -3,30 +3,231 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>あの村について -記者からの報告- 法的情報</title>
+<title>あの村について ―記者からの報告―｜公式サイト</title>
+<meta name="description" content="山奥の村を取材する記者から、写真とメッセージが実時間で届き続けるiPhone向けの静かな怪談ホラー。まとめ読みはできません。返信もできません。">
+<meta property="og:title" content="あの村について ―記者からの報告―">
+<meta property="og:description" content="現実の時間で届く、静かな怪談ホラー。まとめ読みはできません。返信もできません。">
+<meta property="og:image" content="https://postingjoging-afk.github.io/ano-mura-legal/assets/hero.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://postingjoging-afk.github.io/ano-mura-legal/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root { color-scheme: light dark; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-    line-height: 1.8; max-width: 680px; margin: 40px auto; padding: 0 20px;
-    color: #1c1c1e; background: #ffffff;
+  :root{
+    --bg:#0a0a0d; --bg2:#101014; --ink:#d8d8de; --ink-dim:#8f8f99; --ink-faint:#5c5c66;
+    --accent:#a8bfd4; --line:#26262e; --marker:rgba(226,214,84,.28);
   }
-  @media (prefers-color-scheme: dark) {
-    body { color: #e5e5ea; background: #0b0b0f; }
-    a { color: #6db3ff; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Shippori Mincho","Hiragino Mincho ProN",serif;
+    line-height:2; font-size:16px;
+    -webkit-font-smoothing:antialiased;
   }
-  a { color: #0a66ff; }
-  .meta { color: #8e8e93; font-size: .85rem; }
+  /* 走査線 — 全面にごく薄く */
+  body::after{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:50;
+    background:repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 3px);
+  }
+  .mono{font-family:"Courier New",monospace; letter-spacing:.08em}
+  .wrap{max-width:720px; margin:0 auto; padding:0 24px}
+
+  /* ── Hero ── */
+  .hero{
+    position:relative; min-height:100svh; display:flex; flex-direction:column;
+    justify-content:flex-end; overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute; inset:0;
+    background:url("assets/hero.jpg") center 30%/cover no-repeat;
+    filter:brightness(.62) saturate(.85);
+  }
+  .hero-scrim{position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(10,10,13,.55) 0%, rgba(10,10,13,.15) 40%, rgba(10,10,13,.92) 82%, var(--bg) 100%);}
+  .hero-inner{position:relative; padding:0 24px 9svh; max-width:720px; margin:0 auto; width:100%}
+  .hero .stamp{color:#cfd8bd; opacity:.75; font-size:.8rem; margin-bottom:1.2rem}
+  h1{
+    font-size:clamp(1.7rem, 6.4vw, 2.7rem); font-weight:500; letter-spacing:.06em;
+    line-height:1.6; text-wrap:balance;
+  }
+  h1 small{display:block; font-size:.52em; color:var(--ink-dim); font-weight:400; margin-top:.5rem; letter-spacing:.14em}
+  .tagline{margin-top:1.4rem; color:var(--accent); font-size:1.02rem; letter-spacing:.1em}
+  .cta{margin-top:2.2rem; display:flex; flex-wrap:wrap; align-items:center; gap:1rem}
+  .cta img{height:52px; display:block}
+  .cta .note{font-size:.78rem; color:var(--ink-dim); font-family:"Zen Kaku Gothic New",sans-serif}
+
+  /* ── Sections ── */
+  section{padding:5.5rem 0 0}
+  .kicker{color:var(--ink-faint); font-size:.8rem; letter-spacing:.3em; margin-bottom:1.1rem}
+  h2{font-size:clamp(1.25rem,4.4vw,1.6rem); font-weight:500; letter-spacing:.06em; line-height:1.9; margin-bottom:1.6rem; text-wrap:balance}
+  p.body{color:var(--ink); font-size:.98rem}
+  p.body + p.body{margin-top:1.2rem}
+  .dim{color:var(--ink-dim)}
+
+  /* あらすじの引用 */
+  .quote{
+    border-left:2px solid var(--line); padding:0.4rem 0 0.4rem 1.4rem; margin:2rem 0;
+    color:var(--ink); font-size:1.02rem;
+  }
+  .quote .who{display:block; margin-top:.8rem; font-size:.78rem; color:var(--ink-faint)}
+  mark{background:linear-gradient(transparent 55%, var(--marker) 55%); color:inherit; padding:0 .1em}
+
+  /* 写真 */
+  figure.photo{margin:2.6rem 0}
+  figure.photo img{width:100%; display:block; border:1px solid var(--line)}
+  figure.photo figcaption{font-size:.75rem; color:var(--ink-faint); margin-top:.7rem; letter-spacing:.06em}
+
+  /* 特徴 */
+  .feats{display:grid; gap:2.8rem; margin-top:2.4rem}
+  .feat h3{font-size:1.05rem; font-weight:500; letter-spacing:.08em; margin-bottom:.7rem; color:var(--ink)}
+  .feat h3::before{content:"■ "; color:var(--ink-faint); font-size:.8em}
+  .feat p{font-size:.93rem; color:var(--ink-dim)}
+
+  /* スクショ */
+  .shots{display:flex; gap:14px; margin-top:2.4rem; overflow-x:auto; padding-bottom:10px;
+    scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch}
+  .shots img{
+    width:min(62vw,240px); flex:0 0 auto; border-radius:18px; border:1px solid var(--line);
+    scroll-snap-align:center; display:block;
+  }
+
+  /* 概要表 */
+  table{width:100%; border-collapse:collapse; margin-top:2rem; font-size:.92rem}
+  th,td{padding:.85rem .2rem; border-bottom:1px solid var(--line); text-align:left; vertical-align:top}
+  th{color:var(--ink-faint); font-weight:400; width:7em; letter-spacing:.1em}
+  td{color:var(--ink)}
+  td .sub{display:block; color:var(--ink-dim); font-size:.85em; margin-top:.2rem}
+
+  /* 終端CTA */
+  .last{
+    text-align:center; padding:6.5rem 24px 5rem; position:relative;
+  }
+  .last p{color:var(--ink-dim); letter-spacing:.12em; font-size:.95rem; margin-bottom:2rem}
+  .last .cta{justify-content:center}
+
+  footer{
+    border-top:1px solid var(--line); padding:2.6rem 24px 3.4rem;
+    font-family:"Zen Kaku Gothic New",sans-serif; font-size:.8rem; color:var(--ink-faint);
+  }
+  footer .links{display:flex; flex-wrap:wrap; gap:1.4rem; margin-bottom:1.2rem}
+  footer a{color:var(--ink-dim); text-decoration:none; border-bottom:1px solid var(--line)}
+  footer a:hover{color:var(--ink)}
+
+  /* フェードイン */
+  .fx{opacity:0; transform:translateY(14px); transition:opacity 1.1s ease, transform 1.1s ease}
+  .fx.on{opacity:1; transform:none}
+  @media (prefers-reduced-motion: reduce){ .fx{opacity:1; transform:none; transition:none} }
 </style>
 </head>
 <body>
-<h1>あの村について -記者からの報告-</h1>
-<p class="meta">個人開発アプリ／法的情報とサポート</p>
-<ul>
-  <li><a href="./privacy.html">プライバシーポリシー</a></li>
-  <li><a href="./terms.html">利用規約（EULA）</a></li>
-  <li><a href="./support.html">サポート</a></li>
-</ul>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <div class="stamp mono">2025.08.09&nbsp;&nbsp;PM 11:05</div>
+    <h1>あの村について<small>―記者からの報告―</small></h1>
+    <p class="tagline">現実の時間で届く、静かな怪談ホラー。</p>
+    <div class="cta">
+      <a href="https://apps.apple.com/jp/app/id6794392040" aria-label="App Storeでダウンロード">
+        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp" alt="App Storeからダウンロード">
+      </a>
+      <span class="note">基本無料｜iPhone（iOS 16.4以降）</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="wrap fx">
+    <p class="kicker">はじめに</p>
+    <h2>山奥の村へ取材に向かった、<br>ひとりの記者がいます。</h2>
+    <p class="body">その記者から、メッセージと写真だけが、毎日あなたのもとへ届きます。<br>あなたにできるのは、ただ読むことだけ。返信はできません。</p>
+  </section>
+
+  <section class="wrap fx">
+    <p class="kicker">あらすじ</p>
+    <div class="quote">
+      「ひとつだけ、妙な村がある。」
+      <span class="who">― 出発前、記者からの報告より</span>
+    </div>
+    <p class="body">「昼床村」――文献に一行しか出てこない、地形図にも名前のない村。<br>役場の統計では、何度数え直されても、<mark>人口が412人のまま</mark>一人も動いていません。</p>
+    <figure class="photo">
+      <img src="assets/stats.jpg" alt="町村別人口の推移の統計表。昼床村の行だけ412が並び、マーカーが引かれている" loading="lazy">
+      <figcaption>記者が図書館で写した統計のコピー。昼床村の行にだけ、マーカーが引いてある。</figcaption>
+    </figure>
+    <p class="body">記者は取材のあいだ、旧知のあなたに宛てて、写真と短い報告を送り続けます。<br>最初は、ごく普通の取材記録です。<br>けれど村の様子は、日を追うごとに、静かに、少しずつ、おかしくなっていきます。</p>
+  </section>
+
+  <section class="wrap fx">
+    <p class="kicker">この物語の読みかた</p>
+    <div class="feats">
+      <div class="feat">
+        <h3>一度に読めない物語です</h3>
+        <p>物語は実際の時間に沿って配信されます。まとめ読みはできません。続きは、明日を待つしかありません。夜遅くに写真が届くこともあれば、丸一日、何の連絡も来ないこともあります。「連絡が来ない」こと自体が、物語の一部になっています。</p>
+      </div>
+      <div class="feat">
+        <h3>読者は、返信できません</h3>
+        <p>チャットのような画面ですが、入力欄は最初から使えません。励ますことも、引き返すよう伝えることも、通報することもできない。この「何もできなさ」を体験の中心に据えました。</p>
+      </div>
+      <div class="feat">
+        <h3>ホーム画面に、最新の一枚が残り続ける</h3>
+        <p>届いた写真はウィジェットに表示されます。アプリを開いていない時間にも、村の景色が日常に紛れ込みます。</p>
+      </div>
+      <div class="feat">
+        <h3>静かなホラーです</h3>
+        <p>驚かせる演出、大音量、突然現れる顔、画面のフラッシュ――そうした手法は一切使っていません。写真は古い家庭用ビデオのような粗い質感で統一し、記録として淡々と積み上がっていく手触りを重視しました。</p>
+      </div>
+    </div>
+    <div class="shots">
+      <img src="assets/shot1.jpg" alt="アプリ画面: 記者からの最初の報告" loading="lazy">
+      <img src="assets/shot3.jpg" alt="アプリ画面: 実際の時刻に沿って届くトーク画面" loading="lazy">
+      <img src="assets/shot4.jpg" alt="アプリ画面: ホーム画面のウィジェットに写真が残る" loading="lazy">
+    </div>
+  </section>
+
+  <section class="wrap fx">
+    <p class="kicker">概要</p>
+    <figure class="photo">
+      <img src="assets/bag.jpg" alt="出発前夜。詰め終えたバッグとビデオカメラ、テープ" loading="lazy">
+      <figcaption>出発の前夜。翌朝、記者は村へ発ちます。</figcaption>
+    </figure>
+    <table>
+      <tr><th>名称</th><td>あの村について ―記者からの報告―</td></tr>
+      <tr><th>ジャンル</th><td>静かな怪談ホラー／チャット形式のストーリー</td></tr>
+      <tr><th>対応</th><td>iPhone（iOS 16.4以降）</td></tr>
+      <tr><th>価格</th><td>基本無料（アプリ内課金あり）
+        <span class="sub">村に入る前の「前日譚」は購読なしで読めます。本編は月額480円・自動更新、はじめてご購読の方は最初の1週間が無料です。いつでも解約できます。</span></td></tr>
+      <tr><th>公開日</th><td>2026年8月19日</td></tr>
+      <tr><th>開発</th><td>Ito Kento</td></tr>
+    </table>
+  </section>
+</main>
+
+<div class="last fx">
+  <p>村からの報告は、もう始まっています。</p>
+  <div class="cta">
+    <a href="https://apps.apple.com/jp/app/id6794392040" aria-label="App Storeでダウンロード">
+      <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp" alt="App Storeからダウンロード">
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="links">
+    <a href="./privacy.html">プライバシーポリシー</a>
+    <a href="./terms.html">利用規約（EULA）</a>
+    <a href="./support.html">サポート</a>
+  </div>
+  <div>お問い合わせ: spw2jo2@gmail.com</div>
+  <div style="margin-top:.6rem">© 2026 Kento Ito</div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.fx').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
