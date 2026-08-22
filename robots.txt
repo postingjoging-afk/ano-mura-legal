@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://postingjoging-afk.github.io/ano-mura-legal/sitemap.xml
