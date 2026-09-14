@@ -309,5 +309,6 @@
   strip.addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true}); upd();
   document.querySelectorAll('.arrows button').forEach(b=>b.addEventListener('click',()=>{const w=cards[0].offsetWidth+14; strip.scrollBy({left:w*Number(b.dataset.dir),behavior:'smooth'});}));
 </script>
+<script src="../assets/ct.js"></script>
 </body>
 </html>
